@@ -1,0 +1,13 @@
+body {
+    margin : 0;
+    background-color: lightgray; 
+    font-family : arial, sans-serif;
+}
+ul {
+    margin : 0;
+    padding : 0;
+    list-style-type : none;
+}
+a  { text-decoration : none; }
+p  { line-height : 22px; }
+*  { box-sizing : border-box; }
