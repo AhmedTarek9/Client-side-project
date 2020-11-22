@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box"> 
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <form class="input-group" id="login">
+                <input type="text" id="email" class="input-filed" placeholder="Email or phone number" required>
+                <input type="password" id="password" class="input-filed" placeholder="Password" required>
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+
+            <form class="input-group2" id="register">
+                <input type="text" id="name" class="input-filed" placeholder="User Name" required>
+                <input type="text" id="email" class="input-filed" placeholder="Email" required>
+                <input type="text" id="phone" class="input-filed" placeholder="Phone" required>
+                <input type="password" id="password" class="input-filed" placeholder="Password" required>
+                <input type="password" id="password1" class="input-filed" placeholder="Re-enter Password" required>
+                <div class="regist-gender">
+                <span>Gender</span>
+                <input type="radio" class="check-box" name="gender" id="male"><span>Male</span>
+                <input type="radio" class="check-box" name="gender" id="female"><span>Female</span>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
     
+    
+
+    <script src="js/login.js"></script>
 </body>
 </html>
