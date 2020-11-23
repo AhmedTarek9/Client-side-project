@@ -131,3 +131,14 @@ body{
 #register{
     left: 450px;
 }
+
+
+.error-span{
+    font-size: 10px;
+    color: red;
+    font-family: inherit;
+    padding: 0;
+    margin: 0%;
+    visibility: hidden;
+    
+}
