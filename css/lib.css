@@ -1,6 +1,6 @@
 body {
     margin : 0;
-    background-color: lightgray; 
+    background-color:white; 
     font-family : arial, sans-serif;
 }
 ul {
@@ -10,4 +10,4 @@ ul {
 }
 a  { text-decoration : none; }
 p  { line-height : 22px; }
-*  { box-sizing : border-box; }
+* { box-sizing : border-box; }
