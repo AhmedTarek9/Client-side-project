@@ -12,15 +12,16 @@ var password2 = document.getElementById("password");
 var phone=document.getElementById("phone");
 var male = document.getElementById("male");
 var female = document.getElementById("female");
-
+// var gender = document.getElementsByName("gender");
+var gender;
 
 
 ////// error message
-
-var user_error=document.getElementById("user_error");
+// login error
+var user_error=document.getElementById("error1");
 var email_error=document.getElementById("email_error");
 var password_error=document.getElementById("password_error");
-var phone_error=document.getElementById("phone_error");
+// var phone_error=document.getElementById("phone_error");
 
 
 
@@ -48,7 +49,7 @@ function register()
 
 }
 
-
+//////////////////// Validation ////////////////
 var valid = true;
 
 function validateForm(e)
@@ -58,57 +59,46 @@ function validateForm(e)
  
     
 
+     //console.log(gender.value);
  
         if (username.value == "" ) {
-            username.style.border="red";
             valid = false;
-            user_error.style.visibility="visible"
-            console.log("invalid user");
+           
          
         }
 
         if (email1.value == ""  ) {
-             email1.style.borderColor="red";
              valid = false;
-             console.log("invalid email");
              email_error.style.visibility="visible";
           
          }
      
  
-         if (password1.value=='') 
+         if (password1.value=='' || password2.value=='') 
          {
-             password1.style.borderColor="red";
-
-             valid = false;
-             console.log("invalid password");
-             password_error.style.visibility="visible";
+              valid = false;
+             
              
          }
-        //  if (password2.value==''||password2.value!=password1.value) 
+        //  if ('password1.value' != 'password2.value') 
         //  {
-        //      password2.style.borderColor="red";
-
         //      valid = false;
+        //      password_error.style.visibility="visible";
         //      console.log("invalid password1");
              
         //  }
          if(phone.value == '')
          {
-             phone.style.borderColor="red";
-            
              valid = false;
              console.log("invalid phone");
-             phone_error.style.visibility="visible";
+             //phone_error.style.visibility="visible";
      
          }
          else if(phone.value.length<11)
          {
-             phone.style.borderColor="red";
-           
-             valid = false;
+              valid = false;
              console.log("invalid phone");
-             phone_error.style.visibility="visible";
+             //phone_error.style.visibility="visible";
              
          }
         //  if(age.value == '')
@@ -221,7 +211,7 @@ function newset()
     {
         arr = getlocal();
         for (let i = 0; i < arr.length; i++) {
-            if(arr[i].email==email1.value&&arr[i].phone==phone.value)
+            if(arr[i].email==email1.value || arr[i].phone==phone.value)
             {
                 m=true;
                 break;
@@ -250,4 +240,65 @@ function newset()
 }
 
 
+
+function login_data(e)
+{
+    e.preventDefault();
+    let obj = {
+        name:username.value,
+        email:email1.value,
+        phone:phone.value,
+        password:password1.value,
+        gender:male.value
+    }
+    
+    var m =false;
+    
+    if(getlocal()==null)
+    {
+        console.log("Login Failed");
+        user_error.style.visibility='visible';
+
+
+    }
+    else
+    {
+        arr = getlocal();
+        for (let i = 0; i < arr.length; i++) {
+            if((arr[i].email==email.value&&arr[i].password==password.value)||(arr[i].phone==email.value&&arr[i].password==password.value))
+            {
+                console.log("Success Login");
+                m=true;
+                break;
+
+            }
+            
+            
+        }
+
+        if(!m)
+        {
+            console.log("Login Failed");
+        }
+    }
+ 
+    // if(m)
+    // {
+    //     email_error.style.visibility="visible";
+    //     console.log("change email");
+     
+    // }
+    // else
+    // {
+    //     arr.push(obj);
+    //     let setitem = JSON.stringify(arr);
+    //     localStorage.setItem("data",setitem);
+    //     console.log("done");
+       
+        
+    // }
+
+}
+
 registerform.addEventListener("submit",validateForm);
+loginform.addEventListener("submit",login_data);

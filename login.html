@@ -17,7 +17,9 @@
 
             <form class="input-group" id="login">
                 <input type="text" id="email" class="input-filed" placeholder="Email or phone number" required>
+                
                 <input type="password" id="password" class="input-filed" placeholder="Password" required>
+                <div class="error-message" id="error1">Invalid Email or Password.</div>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
@@ -26,18 +28,20 @@
                 <input type="text" id="name" class="input-filed" placeholder="User Name" required>
                
                 <input type="text" id="email1" class="input-filed" placeholder="Email" required>
-                <span class="error-span" id="email_error">invalid email</span>
+                <div class="error-message" id="email_error">Invalid Email.</div>
+                
                 <input type="text" id="phone" class="input-filed" placeholder="Phone" required>
                
                 <input type="password" id="password1" class="input-filed" placeholder="Password" required>
                 
                 <input type="password" id="password2" class="input-filed" placeholder="Re-enter Password" required>
-                
+                <div class="error-message" id="password_error">Passwords not matching.</div>
                 <div class="regist-gender">
                 <span>Gender</span>
-                <input type="radio" class="check-box" name="gender" id="male"><span>Male</span>
-                <input type="radio" class="check-box" name="gender" id="female"><span>Female</span>
+                <input type="radio" class="check-box" name="gender"  value="male" id="male"><span>Male</span>
+                <input type="radio" class="check-box" name="gender" value="female" id="female"><span>Female</span>
                 </div>
+                <div class="error-message" id="gender_error">Select gender.</div>
                 <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>
