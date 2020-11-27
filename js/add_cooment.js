@@ -19,17 +19,25 @@ if ((localStorage.getItem("userd"))) {
     let {name,review,rating} = datar[i];
     var datas=`
     <tr>
-    <td>${name}</td>
+    <td><i class="fa fa-user-o"></i> &nbsp; ${name}</td>
     <td>${review}</td>
-    <td>${rating} &nbsp; stars</td>
+    <td><i class="fa fa-star"></i> &nbsp; ${rating} &nbsp; stars</td>
     </tr>
     `
 
   }
   tabl.innerHTML += datas; 
 }
+resetForm();
 
 }
+
+function resetForm() {
+    document.getElementById("name1").value="";
+    document.getElementById("name2").value="";
+    document.getElementsByName("rating").value="";
+    selectedRow = null;
+    }
 
 
 
