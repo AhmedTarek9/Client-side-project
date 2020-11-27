@@ -51,6 +51,7 @@ body{
     font-size: 22px;
     font-weight: 500;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 h3{
@@ -72,3 +73,101 @@ li{
 
 
  }
+
+li:nth-last-child(1){
+    color: #F8694A;
+}
+hr{
+    border-color: #ebeaea;
+    border-style: dashed;
+}
+
+.payment_form input,select{
+    border: none;
+    background-color: #e9ecec;
+    padding: 15px 10px;
+    width: 32%;
+    border-radius: 3px;
+}
+
+.payment_form .form-input{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.payment_form button {
+    width: 100%;
+    border: none;
+    background-color: #F8694A;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+
+
+/* ------------------- Footer -------------------------- */
+
+
+.footer {
+    margin: 15px 0px;
+  }
+  
+  .footer .footer-header {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .footer-logo {
+    margin-bottom: 30px;
+  }
+  
+  .footer-logo .logo {
+    display: inline-block;
+  }
+  
+  .footer-logo .logo>img {
+    width: 100%;
+    max-height: 70px;
+  }
+  
+  .footer-social>li {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 6px;
+  }
+  
+  .footer-social>li:last-child {
+    margin-right: 0px;
+  }
+  
+  .footer-copyright {
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .slick-dots li, .slick-dots li button, .slick-dots li button:before {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .slick-dots li button:before {
+    content: "";
+    opacity: 1;
+    background: #DADADA;
+    border-radius: 50%;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    background-color: #F8694A;
+  }
+  
+  .custom-dots .slick-dots {
+    position: static;
+    margin: 15px 0px;
