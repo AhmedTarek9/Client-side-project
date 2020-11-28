@@ -28,20 +28,20 @@
                 <input type="text" id="name" class="input-filed" placeholder="User Name" required>
                
                 <input type="text" id="email1" class="input-filed" placeholder="Email" required>
-                <div class="error-message" id="email_error">Invalid Email.</div>
+                <!-- <div class="error-message" id="email_error">Invalid Email.</div> -->
                 
                 <input type="text" id="phone" class="input-filed" placeholder="Phone" required>
                
-                <input type="password" id="password1" class="input-filed" placeholder="Password" required>
+                <input type="password" id="password1" class="input-filed" placeholder="Password" minlength="8" required>
                 
-                <input type="password" id="password2" class="input-filed" placeholder="Re-enter Password" required>
-                <div class="error-message" id="password_error">Passwords not matching.</div>
+                <input type="password" id="password2" class="input-filed" placeholder="Re-enter Password" minlength="8" required>
+                <!-- <div class="error-message" id="password_error">Passwords not matching.</div> -->
                 <div class="regist-gender">
                 <span>Gender</span>
                 <input type="radio" class="check-box" name="gender"  value="male" id="male"><span>Male</span>
                 <input type="radio" class="check-box" name="gender" value="female" id="female"><span>Female</span>
                 </div>
-                <div class="error-message" id="gender_error">Select gender.</div>
+                <div class="error-message" id="register_error"></div>
                 <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>

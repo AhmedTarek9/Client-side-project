@@ -8,12 +8,12 @@ var password = document.getElementById("password");
 var username = document.getElementById("name");
 var email1 = document.getElementById("email1");
 var password1 = document.getElementById("password1");
-var password2 = document.getElementById("password");
+var password2 = document.getElementById("password2");
 var phone=document.getElementById("phone");
-var male = document.getElementById("male");
-var female = document.getElementById("female");
-// var gender = document.getElementsByName("gender");
-var gender;
+var gender = document.getElementsByName("gender");
+// var male = document.getElementById("male");
+// var female = document.getElementById("female");
+
 
 
 ////// error message
@@ -21,6 +21,8 @@ var gender;
 var user_error=document.getElementById("error1");
 var email_error=document.getElementById("email_error");
 var password_error=document.getElementById("password_error");
+
+var register_error=document.getElementById("register_error");
 // var phone_error=document.getElementById("phone_error");
 
 
@@ -56,7 +58,8 @@ function validateForm(e)
  {
      e.preventDefault();
      valid = true;
- 
+     register_error.style.visibility="hidden";
+     register_error.innerText ="";
     
 
      //console.log(gender.value);
@@ -69,7 +72,7 @@ function validateForm(e)
 
         if (email1.value == ""  ) {
              valid = false;
-             email_error.style.visibility="visible";
+             
           
          }
      
@@ -80,13 +83,13 @@ function validateForm(e)
              
              
          }
-        //  if ('password1.value' != 'password2.value') 
-        //  {
-        //      valid = false;
-        //      password_error.style.visibility="visible";
-        //      console.log("invalid password1");
+         if (password1.value != password2.value) 
+         {
+             valid = false;
+             register_error.innerText +=" passwords not matching "
+             register_error.style.visibility="visible";
              
-        //  }
+         }
          if(phone.value == '')
          {
              valid = false;
@@ -101,13 +104,27 @@ function validateForm(e)
              //phone_error.style.visibility="visible";
              
          }
-        //  if(age.value == '')
-        //  {
-        //      age.style.borderColor="red";
-        //      message5.style.display=style=" contents";
-        //      valid = false;
-     
-        //  }
+        
+        var gender = document.getElementsByName("gender");
+
+        var m= false;
+        for (let i = 0; i < gender.length; i++) {
+            if(gender[i].checked)
+            {
+               m=true;
+                break;
+            }
+            else{
+                valid=false;
+                
+            }
+        
+        }
+        if(m=false)
+        {
+            register_error.innerText+=" select gender "
+            register_error.style.visibility="visible";
+        }
  
  
      if(valid)
@@ -140,17 +157,17 @@ function validateForm(e)
 
 
 function resetForm() {
-    if(valid)
-    {
-        id.value = "";
-         name1.value = "";
-         email.value = "";
-         phone.value = "";
-         age.value = "";
-         msg.textContent = "";
+   
+        username.value = "";
+        email1.value = "";
+        phone.value = "";
+        password1.value = "";
+        password2.value = "";
 
+        email.value="";
+        password.value="";
         
-    }
+        
  }
  
 
@@ -204,6 +221,7 @@ function newset()
     if(getlocal()==null)
     {
         register_data();
+        resetForm();
 
 
     }
@@ -223,7 +241,8 @@ function newset()
  
     if(m)
     {
-        email_error.style.visibility="visible";
+        register_error.innerText="invalid email or phone"
+        register_error.style.visibility="visible";
         console.log("change email");
      
     }
@@ -232,7 +251,10 @@ function newset()
         arr.push(obj);
         let setitem = JSON.stringify(arr);
         localStorage.setItem("data",setitem);
-        console.log("done");
+        register_error.innerText="Done"
+        register_error.style.visibility="visible";
+        resetForm();
+
        
         
     }
@@ -244,6 +266,7 @@ function newset()
 function login_data(e)
 {
     e.preventDefault();
+    user_error.style.visibility='hidden';
     let obj = {
         name:username.value,
         email:email1.value,
@@ -256,7 +279,7 @@ function login_data(e)
     
     if(getlocal()==null)
     {
-        console.log("Login Failed");
+        //console.log("Login Failed");
         user_error.style.visibility='visible';
 
 
@@ -269,6 +292,7 @@ function login_data(e)
             {
                 console.log("Success Login");
                 m=true;
+                resetForm();
                 break;
 
             }
@@ -278,25 +302,10 @@ function login_data(e)
 
         if(!m)
         {
-            console.log("Login Failed");
+            user_error.style.visibility='visible';
         }
     }
  
-    // if(m)
-    // {
-    //     email_error.style.visibility="visible";
-    //     console.log("change email");
-     
-    // }
-    // else
-    // {
-    //     arr.push(obj);
-    //     let setitem = JSON.stringify(arr);
-    //     localStorage.setItem("data",setitem);
-    //     console.log("done");
-       
-        
-    // }
 
 }
 
