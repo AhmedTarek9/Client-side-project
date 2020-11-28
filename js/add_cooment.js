@@ -12,16 +12,15 @@ datar.push(data);
 console.log(datar);
 let itm = JSON.stringify(datar);
 localStorage.setItem("userd",itm);
-let res2=JSON.parse(localStorage.getItem("userd"));
-
 if ((localStorage.getItem("userd"))) {
     for (let i = 0; i < datar.length; i++) {
-    let {name,review,rating} = datar[i];
+    // let {name,review,rating} = datar[i];
+    let res2=JSON.parse(localStorage.getItem("userd"));
     var datas=`
     <tr>
-    <td><i class="fa fa-user-o"></i> &nbsp; ${name}</td>
-    <td>${review}</td>
-    <td><i class="fa fa-star"></i> &nbsp; ${rating} &nbsp; stars</td>
+    <td><i class="fa fa-user-o"></i> &nbsp; ${JSON.parse(localStorage.getItem("userd"))[i].name}</td>
+    <td>${JSON.parse(localStorage.getItem("userd"))[i].review}</td>
+    <td><i class="fa fa-star"></i> &nbsp; ${JSON.parse(localStorage.getItem("userd"))[i].rating} &nbsp; stars</td>
     </tr>
     `
 

@@ -91,7 +91,7 @@ body{
     border-radius: 30px;
 }
 
-.check-box{
+.form-box .check-box{
     margin: 30px 10px 30px 0;
 
 }
@@ -115,6 +115,10 @@ body{
 
 .regist-gender{
     display: inline;
+} 
+.regist-gender .check-box{
+
+    margin: 10px;
 }
 .regist-gender span{
     color: #777777;
@@ -148,12 +152,12 @@ body{
     /* display: inline-block; */
     font-size: 12px;
     line-height: 15px;
-    margin: 5px 0 0;
+    margin: 10px 5px ;
 }
 .input-group .error-message {
-    visibility: hidden;;
+    visibility: hidden;
 }
 
 .input-group2 .error-message {
-   visibility: hidden;;
+   visibility: hidden;
 }
