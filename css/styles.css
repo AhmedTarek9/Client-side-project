@@ -97,6 +97,17 @@ body {
   }
   
   /* Inputs*/
+  .clearfix  .form-input{
+    display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      line-height: 2;
+      color: rgb(122, 122, 122);
+      border: none;
+      width: 100%;
+      height: 40px;
+      background-color: transparent;
+  }
   
   .input {
     width: 100%;
@@ -133,6 +144,8 @@ body {
   .input-checkbox input[type="checkbox"]:checked+label+.caption, .input-checkbox input[type="radio"]:checked+label+.caption {
     max-height: 800px;
   }
+
+  
   
   /* Lists*/
   
