@@ -116,14 +116,12 @@ function validateForm(e)
                m=true;
                 break;
             }
-            else{
-                valid=false;
-                
-            }
+            
         
         }
         if(m=false)
         {
+            valid=false;
             register_error.innerText+=" select gender "
             register_error.style.visibility="visible";
         }
