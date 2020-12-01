@@ -11,6 +11,8 @@ var password1 = document.getElementById("password1");
 var password2 = document.getElementById("password2");
 var phone=document.getElementById("phone");
 var gender = document.getElementsByName("gender");
+var pic =document.getElementById("file");
+
 // var male = document.getElementById("male");
 // var female = document.getElementById("female");
 
@@ -60,7 +62,7 @@ function validateForm(e)
      valid = true;
      register_error.style.visibility="hidden";
      register_error.innerText ="";
-    
+    console.log(pic.value);
 
      //console.log(gender.value);
  
@@ -107,23 +109,30 @@ function validateForm(e)
         
         var gender = document.getElementsByName("gender");
 
-        var m= false;
+        var x= false;
         for (let i = 0; i < gender.length; i++) {
             if(gender[i].checked)
             {
-               m=true;
+               x=true;
                 break;
             }
-            else{
-                valid=false;
-                
+            else if(gender[i+1].checked)
+            {
+               x=true;
+                break;
             }
+            else
+            {
+                valid=false;
+                register_error.innerText+=" select gender "
+                register_error.style.visibility="visible";
+            }
+            
         
         }
-        if(m=false)
+        if(x=false)
         {
-            register_error.innerText+=" select gender "
-            register_error.style.visibility="visible";
+           
         }
  
  
@@ -184,7 +193,8 @@ function register_data() {
         email:email1.value,
         phone:phone.value,
         password:password1.value,
-        gender:male.value
+        gender:male.value,
+        pic:pic.value
     }
     //arr.push(obj);
 
@@ -213,7 +223,8 @@ function newset()
         email:email1.value,
         phone:phone.value,
         password:password1.value,
-        gender:male.value
+        gender:male.value,
+        pic:pic.value
     }
     
     var m =false;
@@ -253,12 +264,26 @@ function newset()
         localStorage.setItem("data",setitem);
         register_error.innerText="Done"
         register_error.style.visibility="visible";
+        alert("Registration success");
+        window.location.href = "login.html";
         resetForm();
 
        
         
     }
 
+}
+
+var profile_pic=document.getElementById("profile_pic");
+var profile_name=document.getElementById("profile_name");
+var profile_phone=document.getElementById("profile_phone");
+
+function setprofile(pic,name,phone)
+{
+    profile_pic.setAttribute('src',pic);
+    profile_name.innerText=name;
+    profile_phone.innerText=phone;
+    
 }
 
 
@@ -290,7 +315,9 @@ function login_data(e)
         for (let i = 0; i < arr.length; i++) {
             if((arr[i].email==email.value&&arr[i].password==password.value)||(arr[i].phone==email.value&&arr[i].password==password.value))
             {
-                console.log("Success Login");
+                //setprofile(arr[i].pic,arr[i].name,arr[i].phone)
+                window.location.href = "account.html";
+                
                 m=true;
                 resetForm();
                 break;
